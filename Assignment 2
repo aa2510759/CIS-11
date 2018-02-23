@@ -1,0 +1,45 @@
+Andres Arevalo
+CIS-11
+
+- [ ] 2.1.5 Section Review, Questions 1,2,3,4 and 5
+
+1) Arithmetic logic unit, control unit, and clock.
+2) The address bus, the I/O bus, and the control bus.
+3) Because there are 4 steps and each require 1 clock cycle each.
+4) fetch instructions, decode into machine language, execute instructions
+5) fetches the operands for calculations and stores the result of the operands.
+
+- [ ] 2.4.3 Section Review, Question 5
+
+5) handles interrupts from devices like the keyboard which make it possible
+for the processor to know what key is being pressed as well as detecting other input devices.
+
+- [ ] 2.5.2 Section Review, Questions 1, 3, 4, and 5
+
+1) level 0 send and recieve data directly to and from hardware
+   level 1 call bios functions to perform device specific features like color
+   level 2 call operatting system functions to perfrom basic I/O
+   level 3 call library functions to perfom basic I/O features
+Level 3 being the most portable.
+
+3) It is necessary in order for the bios to connect to new hardware.
+
+4) level 3
+
+5) It is likely that the bios might be different however this has more to do with the hardware 
+than the operating  system. 
+
+- [ ] 2.8 Review Question 7, 8, 9, 10, 12, 19, 20, 25, and 26
+
+7) Integrated floating point unit.
+8) 80 bits
+9) True
+10) False
+12) False
+19) False
+20) False
+
+25) Assembly language has access to all 4 levels
+hardware, bios, OS, and library.
+
+26) It is to take advantage of sound card features.
