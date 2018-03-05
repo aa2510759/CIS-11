@@ -1,0 +1,66 @@
+- [ ] 3.1.11 Section Review, Questions 1, 2, 3, 4
+1) -35, -35d: decimal
+   0DDh: hex
+   335o: oct
+   11011101b: binary
+2)No it needs a leading zero 
+3)No they have the same precedence
+4) -45 MOD 8 + (12/3) * (4/2) = 3
+
+- [ ] 3.2.4 Section Review, Questions 4, 5
+4) The eax register
+5) The exit statement
+
+- [ ] 3.3.3 Section Review, Questions 1, 2, 3, 4
+1) The object files and the list files
+2) true
+3) true
+4) the loader
+
+- [ ] 3.4.13 Section Review, Questions 1, 2, 3, 4, 5
+1) Int16 SWORD ?	
+2) Int8 BYTE ?
+3) Int8 SBYTE ?
+4) Int64 QWORD ?
+5) Int SDWORD 0
+
+- [ ] 3.5.5 Section Review Question 3
+3) ArraySize = ($-myArray)
+
+- [ ] 3.9.1 Short Answer, Questions 4, 5, 6, 25
+4) The assembler language is not the same as assembly language
+because it converts the source file to machine code and does not use alphanumeric code.
+5) big-endian order is from high to low bytes 
+little-endian order is from low to high bytes
+the name originates from before the time of microprocessors and was 
+used to for the chip technology at the time.
+6)It is preffered to use a symbolic constant when the value of the integer stays the same during runtime
+25)SDWORD
+
+- [ ] 3.9.2 Algorithm Workbench, Questions 4, 7, 13
+4) It deosn't tell when their is type incompatability
+7)array1 DWORD 120 DUP (?)
+13)string1 BYTE 500 DUP ("Test")
+
+- [ ] 3.10 Programming Exercises, Pick any 1 exercise
+INCLUDE Irvine32.Inc
+.data
+A DWORD 140
+B DWORD 80
+c DWORD 55
+D DWORD 20
+.code
+main PROC
+mov eax, A
+mov ebx, B
+mov ecx, C
+mov edx, D
+
+add eax, ebx
+add ecx, edx
+sub eax, ecx
+mov A, eax
+exit
+main ENDP
+END main
+	
