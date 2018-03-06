@@ -43,8 +43,9 @@ used to for the chip technology at the time.
 13)string1 BYTE 500 DUP ("Test")
 
 - [ ] 3.10 Programming Exercises, Pick any 1 exercise
-INCLUDE Irvine32.Inc
+ExitProcess proto
 .data
+
 A DWORD 140
 B DWORD 80
 c DWORD 55
@@ -60,7 +61,6 @@ add eax, ebx
 add ecx, edx
 sub eax, ecx
 mov A, eax
-exit
-main ENDP
-END main
-	
+
+main endp
+end
