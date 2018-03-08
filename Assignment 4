@@ -22,3 +22,28 @@
    d. EDX = 3
    e. edx = 3
    f. eax = 2
+- [ ] 4.10 Question 7
+
+ExitProcess proto
+;Write a program with a loop and indirect addressing that copies 
+;a string from source to target, reversing the character order in the process
+.data
+source PBYTE "This is the source string", 0
+target PBYTE SIZEOF source DUP('#')
+.code
+main PROC
+ mov esi, sizeof source
+ mov esx, sizeof source
+ mov edx, 0
+
+ MY LOOP:
+	mov al, [source + edi - 1] ;get a character from source
+	mov [target + edx ], al ; store it in the target
+	inc edx ; move to the next character
+	dec esi 
+
+	loop MYLOOP
+
+call ExitProcess
+main endp
+end
