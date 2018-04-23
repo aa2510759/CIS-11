@@ -1,0 +1,95 @@
+;Fibonacci 
+
+ExitProcess	proto
+WriteInt64	proto
+Crlf		proto
+
+.data
+nMinus2 qword 0
+nMinus1 qword 1
+n		qword 0
+counter qword 47-1
+.code
+main proc
+	
+	mov rcx, counter
+
+	mov rax, nMinus2
+	call WriteInt64 
+	call Crlf
+
+	mov rax, nMinus1
+	call WriteInt64
+	call Crlf
+	call Fibonacci
+	
+	
+   call ExitProcess
+main endp
+
+Fibonacci proc
+myLoop:
+	mov r9, nMinus2
+	add r9, nMinus1
+		mov n,r9
+
+		
+	mov rax, n
+	call WriteInt64
+	call Crlf
+
+	mov r9, nMinus1
+	mov nMinus2, r9
+
+		
+	mov r9, n
+	
+	mov nMinus1, r9
+	loop myLoop
+ret
+Fibonacci endp
+end
+********************************************************************************************************************
+********************************************************************************************************************
+;Random A screen
+
+include Irvine32.inc
+.data
+rows BYTE 0
+columns BYTE 0
+RandomRow BYTE 0
+RandomColumn BYTE 0
+
+.code
+main proc
+
+call GetMaxXY 
+mov rows,al
+mov columns, dl
+mov ecx, 100
+
+myLoop:
+movzx eax,rows
+call RandomRange
+mov RandomRow,al
+
+movzx eax, columns
+call RandomRange
+mov RandomColumn, al
+
+mov dh,RandomRow 
+mov dl,RandomColumn 
+call Gotoxy
+
+mov al, 'A'			
+call WriteChar
+call crlf
+
+mov eax,100				
+call Delay
+	
+	loop myLoop
+
+invoke ExitProcess,0
+main endp
+end main
