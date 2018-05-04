@@ -1,0 +1,40 @@
+;Andres Arevalo
+;CIS-11
+
+   1) Briefly describe the concept of "Stack Frame" (1 through 5 points depending on quality of the answer)
+   
+The Stack Frame is the concept of a stack of objects representing the way data is kept track of during runtime.
+Stack frame only allows for poping or pushing from the very top of the stack and follows a first-in first-out procedure.  
+The stack frame is made up of 3 components the return addresses, the local variables, and the stack parameters.
+
+   2) Briefly describe the concept of a "Calling Convention" (1 through 5 points depending on quality of the answer)
+   
+Calling conventions are the parameters and syntax of what is needed for a procedure to be recognized by the compiler.
+    
+   3) Why do the book examples always start functions with "push ebp" and "mov ebp,esp" (2 points)
+   
+Because the ebp register is used to establish a stack frame.
+    
+  4)  What is the x64 equivalent to "push epb" and "mov ebp,esp)" (2 points)
+  
+push rbp
+mov rbp, rsp
+    
+   5) What are the differences between "Microsoft x64 calling convention" and "System V AMD64 ABI calling convention" (2 points)
+   
+For the System V AMD64 ABI calling convention, RBP, RBX, and R12–R15 are callee-save registers
+all others must be saved by the caller if it wishes to preserve their values.
+No shadow space is provided in System V AMD64 ABI calling convention.
+
+    void myFunction(int a, int b, int c, int d, int e, int f)  {
+      //some code here
+    }
+
+   6) Upon entry to myFunction (above), what does the stack look like when using Microsoft x64 calling convention? (3 points)
+   
+The first four values are saved on registers and the other two values of myFunction are stored in the stack
+ 
+   7) Upon entry to myFunction (above), what does the stack look like when using stdcall convention (3 points)
+   
+The parameters are pushed onto the stack in right-to-left.
+   
