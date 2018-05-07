@@ -1,0 +1,70 @@
+;Andres Arevalo
+;CIS-11
+
+ExitProcess Proto
+
+.data
+MyArray QWORD 10d, 20d, 30d, 40d
+FinalArray QWORD 4 DUP (0) ; initialized array to 0 each element
+.code
+main proc
+
+
+mov rsi, 0
+mov r15, 8 ; hard code
+; more dynamic version requires tweeks 
+; DV = mov r15, type MyArray
+
+	; print out the array numbers
+	; mov rcx, 4
+	; mov rsi, 0
+	; start loop
+	; mov rax, rsi
+	; mul r15
+	; mov rdi, rax
+	; mov rax, MyArray[rdi]
+	; call WriteInt64
+	; end loop
+
+	; you might to mess with differennt registers
+
+
+mov rcx, 4 
+	MyLoop:
+
+	; figure out our loop index and get the current index's value
+	
+	mov rax, rsi
+	mul r15 ; mul uses rax can't use ints must mul registers directly
+	mov rdx, qword ptr myArray[rax + 8]; rdx has current value 
+
+	cmp rsi, 4
+	je HandleLast
+
+	mov finalArray [rax + 8], rdx
+	jmp EndLoop
+
+	HandleLast:
+	mov finalArray[0], rdx
+
+	EndLoop:
+
+	inc rsi ; increments loop counter
+	Loop MyLoop
+
+		; print out the array numbers
+	; mov rcx, 4
+	; mov rsi, 0
+	; start loop
+	; mov rax, rsi
+	; mul r15
+	; mov rdi, rax
+	; mov rax, finalArray[rdi]
+	; call WriteInt64
+	; end loop
+
+	; you might to mess with differennt registers
+
+	call ExitProcess
+main endp
+end
