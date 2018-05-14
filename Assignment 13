@@ -9,20 +9,22 @@
 ; Andres Arevalo
 ; CIS-11
 
+; Andres Arevalo
+; CIS-11
+
 ExitProcess Proto
 WriteInt64 Proto
 ReadInt64 Proto
 Crlf Proto
-;AAAAAAAAAAAA
+
 .data
-Array QWORD 5d,1d,4d,2d,8d
+Array QWORD 10,3,3,9,5,4,2,0,1
 
 .code
 main PROC
 
 ; print the ARRAY
 mov rcx, lengthof Array
-
 mov rsi, 0
 Loloop:
 	mov rax, Array[rsi * 8]
@@ -32,15 +34,11 @@ Loloop:
 	inc rsi
 loop Loloop
 
-
+; bubble sort
 mov rcx, lengthof Array
 
-; bubble sort
-
 OuterLoop:
-
-;set rcx
-;set rsi
+mov r15, rcx ; save outerlooop counter
 mov rcx, Lengthof Array
 dec rcx
 mov rsi, 0
@@ -58,8 +56,9 @@ mov rsi, 0
 		mov Array[rsi * 8], r13
 
 	ENDLOOP:
+	inc rsi
 	Loop innerLop
-	;mov rcx, r15
+mov rcx, r15
 
 Loop OuterLoop
 
@@ -70,5 +69,6 @@ call ReadInt64
 call ExitProcess
 main endp
 end
+
 
 
