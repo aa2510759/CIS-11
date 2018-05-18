@@ -1,3 +1,6 @@
+;Andres Arevalo
+;CIS-11
+
 include Irvine32.inc
 
 .data
@@ -45,26 +48,32 @@ L2:
 	loop L1					
 
 L3:
-	exit 
 
 main endp
+exit 
 
 AndProcedure proc
 mov edx, offset andMsg
 call WriteString		
 call crlf			
-
-call ReadHex			 
+call ReadHex			
 mov hexVal, eax			
 call ReadHex		
+AND eax, hexVal	
+call WriteHex
 call crlf
 ret
 AndProcedure endp
 
 OrProcedure proc
 mov edx, offset orMSg
-
 call WriteString		
+call crlf
+call ReadHex			
+mov hexVal, eax			
+call ReadHex		
+OR eax, hexVal	
+call WriteHex
 call crlf
 ret
 OrProcedure endp
@@ -73,7 +82,6 @@ NotProcedure proc
 mov edx, offset notMSg
 call WriteString		
 call crlf		
-
 call ReadHex			
 NOT eax					
 call WriteHex		
@@ -85,12 +93,13 @@ XorProcedure proc
 mov edx, offset xorMsg
 call WriteString
 call crlf
-
 call ReadHex			
 mov hexVal, eax			
 call ReadHex		
-XOR eax, hexVal			
+XOR eax, hexVal	
+call WriteHex
 call crlf
 ret
 XorProcedure endp
+
 end main
